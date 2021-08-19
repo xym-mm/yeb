@@ -25,7 +25,7 @@ public class AdminLoginController {
     @ApiOperation(value = "登录后返回token")
     @PostMapping("/login")
     public RespBean AdminLogin(@RequestBody  AdminLoginParam adminLoginParam, HttpServletRequest request) {
-       return iAdminService.AdminLogin(adminLoginParam.getUsername(),adminLoginParam.getPassword(),request);
+       return iAdminService.AdminLogin(adminLoginParam.getUsername(),adminLoginParam.getPassword(),adminLoginParam.getCode(),request);
     }
 
     @ApiOperation(value = "获取登陆后的用户信息")

@@ -1,11 +1,15 @@
 package com.yeb.server.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -58,5 +62,10 @@ public class Menu implements Serializable {
     @ApiModelProperty(value = "是否启用")
     private Boolean enabled;
 
+    //子菜单属性（表中并无此属性）
+    @ApiModelProperty(value = "子菜单")
+    //次注解表明该属性在表中并不存在
+    @TableField(exist = false)
+    private List<Menu> children;
 
 }
