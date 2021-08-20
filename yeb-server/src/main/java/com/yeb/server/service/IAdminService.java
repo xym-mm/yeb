@@ -30,9 +30,4 @@ public interface IAdminService extends IService<Admin> {
      */
     Admin getUserByUserName(String userName);
 
-    /**
-     * 根据用户id获取菜单列表
-     * @return
-     */
-    List<Menu> getMenuByAdminId();
 }

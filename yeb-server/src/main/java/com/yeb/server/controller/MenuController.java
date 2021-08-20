@@ -26,11 +26,11 @@ import java.util.List;
 public class MenuController {
 
     @Autowired
-    private IAdminService iAdminService;
+    private IMenuService menuService;
 
     @ApiOperation(value = "根据用户id获取菜单列表")
     @GetMapping("/menu")
-    public List<Menu> getMenuById() {
-        return iAdminService.getMenuByAdminId();
+    public List<Menu> getMenuByAdminId() {
+        return menuService.getMenuByAdminId();
     }
 }

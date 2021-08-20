@@ -28,6 +28,9 @@ spring:
       #测试连接是否可用的查询语句
       connection-test-query: SELECT 1
 
+  redis:
+
+
 #Mybatis-plus配置
 mybatis-plus:
   #配置Mapper映射文件

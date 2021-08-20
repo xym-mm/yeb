@@ -3,10 +3,8 @@ package com.yeb.server.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.yeb.server.config.security.JWTokenUtil;
-import com.yeb.server.mapper.MenuMapper;
 import com.yeb.server.pojo.Admin;
 import com.yeb.server.mapper.AdminMapper;
-import com.yeb.server.pojo.Menu;
 import com.yeb.server.pojo.RespBean;
 import com.yeb.server.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -22,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -94,13 +91,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return adminMapper.selectOne(new QueryWrapper<Admin>().eq("username",userName).eq("enabled",true));
     }
 
-    /**
-     * 根据用户id获取菜单列表
-     * @return
-     */
-    @Override
-    public List<Menu> getMenuByAdminId() {
-        return adminMapper.getMenuByAdminId(((Admin)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
-    }
+
+
 
 }

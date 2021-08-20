@@ -14,6 +14,11 @@ import java.util.List;
  * @since 2021-03-09
  */
 public interface MenuMapper extends BaseMapper<Menu> {
-    List<Menu> getMenuById(Integer id);
+
+    /**
+     * 根据用户id获取菜单列表
+     */
+    List<Menu> getMenuByAdminId(Integer id);
+
 
 }

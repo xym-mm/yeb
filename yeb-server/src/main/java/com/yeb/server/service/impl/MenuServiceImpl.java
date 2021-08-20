@@ -1,5 +1,6 @@
 package com.yeb.server.service.impl;
 
+import com.yeb.server.mapper.AdminMapper;
 import com.yeb.server.pojo.Admin;
 import com.yeb.server.pojo.Menu;
 import com.yeb.server.mapper.MenuMapper;
@@ -22,5 +23,16 @@ import java.util.List;
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
 
+    @Autowired
+    private MenuMapper menuMapper;
 
+    /**
+     * 根据用户id获取菜单列表
+     * 为了保证安全，不从前端传参数回来，利用springsecurity拿到adminId
+     * @return
+     */
+    @Override
+    public List<Menu> getMenuByAdminId() {
+        return menuMapper.getMenuByAdminId(((Admin)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
+    }
 }
