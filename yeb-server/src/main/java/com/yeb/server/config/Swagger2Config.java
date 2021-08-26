@@ -1,5 +1,6 @@
 package com.yeb.server.config;
 
+import com.yeb.server.config.enums.EnumConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -34,9 +35,9 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("yeb接口文档")
-                .description("yeb接口文档")
-                .contact(new Contact("xymmm","http:localhost:8081/doc.html","569801203@qq.com"))
+                .title(EnumConfig.title)
+                .description(EnumConfig.description)
+                .contact(new Contact(EnumConfig.NAME,EnumConfig.URL,EnumConfig.EMAIL))
                 .version("1.0")
                 .build();
     }

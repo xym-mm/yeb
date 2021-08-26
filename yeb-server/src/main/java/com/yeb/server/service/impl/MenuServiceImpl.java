@@ -35,4 +35,13 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
     public List<Menu> getMenuByAdminId() {
         return menuMapper.getMenuByAdminId(((Admin)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
     }
+
+    /**
+     * 根据角色获取菜单列表
+     * @return
+     */
+    @Override
+    public List<Menu> getMenuByRole() {
+        return menuMapper.getMenuByRole();
+    }
 }

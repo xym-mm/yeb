@@ -2,7 +2,6 @@ package com.yeb.server.mapper;
 
 import com.yeb.server.pojo.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yeb.server.pojo.Menu;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package com.yeb.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.yeb.server.config.security.JWTokenUtil;
+import com.yeb.server.config.component.JWTokenUtil;
 import com.yeb.server.pojo.Admin;
 import com.yeb.server.mapper.AdminMapper;
 import com.yeb.server.pojo.RespBean;
@@ -64,7 +64,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         if (userDetails == null || passwordEncoder.matches(passWord,userDetails.getPassword())) {
             return RespBean.error("用户名或密码不正确");
         }
-        //判断用户是否被禁用
+        //判断用户是否被禁用,isEnabled = true
         if (!userDetails.isEnabled()) {
             return RespBean.error("用户已被禁用");
         }
